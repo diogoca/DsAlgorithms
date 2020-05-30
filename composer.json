@@ -1,0 +1,14 @@
+{
+    "name": "diogoca/studies",
+    "description": "Studies of Data Strucutres, Search, Sort and String Algorithms",
+    "authors": [
+        {
+            "name": "Diogo Alves",
+            "email": "diogoca@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Studies\\": "src/" }
+    },
+    "require": {}
+}
