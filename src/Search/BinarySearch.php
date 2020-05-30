@@ -1,10 +1,11 @@
 <?php
 
-namespace SearchAlgorithims;
+namespace Algorithims\Search;
 
 
 class BinarySearch
 {
+    public function 
     
 }
 

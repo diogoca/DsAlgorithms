@@ -1,6 +1,6 @@
 <?php
 
-namespace Studies\SortAlgorithims;
+namespace Algorithims\Sort;
 
 /**
  * QuickSort Algorithm

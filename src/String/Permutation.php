@@ -1,5 +1,7 @@
 <?php
 
+namespace Algorithims\String;
+
 function swap(&$word, $i, $j) {
     $aux = $word[$j];
 
