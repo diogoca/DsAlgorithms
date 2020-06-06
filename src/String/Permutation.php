@@ -1,28 +1,29 @@
 <?php
 
-namespace Algorithims\String;
+namespace DsAlgorithms\String;
 
-function swap(&$word, $i, $j) {
+function swap(&$word, $i, $j)
+{
     $aux = $word[$j];
 
     $word[$j] = $word[$i];
     $word[$i] = $aux;
 }
 
-function permute($word) {
+function permute($word)
+{
 
     echo $word . PHP_EOL;
 
     $length = strlen($word);
 
-    for($i = 0 ; $i < $length ; $i++) {
-        if(($i + 1) >= $length) {
+    for ($i = 0; $i < $length; $i++) {
+        if (($i + 1) >= $length) {
             return;
         }
 
-        swap($word, $i, $i + 1);        
-    }    
-
+        swap($word, $i, $i + 1);
+    }
 }
 
 /**

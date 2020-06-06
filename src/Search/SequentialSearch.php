@@ -3,10 +3,10 @@
 namespace DsAlgorithms\Search;
 
 /**
- * Binary Search
- * Average complexity: O(log n)
+ * Sequencial Search
+ * Average complexity: O(n)
  */
-class BinarySearch implements ArraySearch
+class SequentialSearch implements ArraySearch
 {
     public static $calls = 0;
 
@@ -18,19 +18,13 @@ class BinarySearch implements ArraySearch
             return null;
         }
 
-        $middleIndex = \floor(($begin + $end) / 2);
-
-        if ($arr[$middleIndex] === $needle) {
-            return $middleIndex;
+        if ($arr[$begin] === $needle) {
+            return $begin;
         }
 
-        if ($needle > $arr[$middleIndex]) {
-            return self::recursiveSearch($arr, $needle, ++$middleIndex, $end);
-        } else {
-            return self::recursiveSearch($arr, $needle, $begin, --$middleIndex);
-        }
+        return self::recursiveSearch($arr, $needle, ++$begin, $end);
     }
-    
+
     public static function search(array $arr, $needle)
     {
         if (empty($arr) || empty($needle)) {
@@ -49,6 +43,6 @@ $input = \range(7, 14);
 
 print_r($input);
 
-var_dump(BinarySearch::search($input, 14));
+var_dump(SequentialSearch::search($input, 14));
 
-var_dump(BinarySearch::$calls);
+var_dump(SequentialSearch::$calls);

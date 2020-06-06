@@ -1,6 +1,6 @@
 {
-    "name": "diogoca/algorithms",
-    "description": "Algorithms of Data Strucutres, Search, Sort and String Algorithms",
+    "name": "diogoca/dsalgorithms",
+    "description": "Data Structures and Search, Sort and String Algorithms",
     "authors": [
         {
             "name": "Diogo Alves",
@@ -9,13 +9,16 @@
     ],
     "autoload": {
         "psr-4": { 
-            "Algorithms\\": "src/",
-            "Algorithms\\Test\\": "src/test/"
+            "DsAlgorithms\\": "src/",
+            "DsAlgorithms\\Test\\": "src/test/"
         }
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "3.*",
         "phpunit/phpunit": "^6.5"
     },
-    "require": {}
+    "require": {},
+    "scripts": {
+        "beauty": "vendor/bin/phpcbf --standard=PSR2 --colors --extensions=php --encoding=utf-8 ./src ./tests"
+    }
 }
