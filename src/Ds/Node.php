@@ -1,6 +1,6 @@
 <?php
 
-namespace DsAlgorithms\Ds\DsList;
+namespace DsAlgorithms\Ds;
 
 class Node
 {

@@ -9,7 +9,7 @@ It's recommended that you use [Composer](https://getcomposer.org/) to install.
 $ composer require diogoca/dsalgorithms
 ````
 
-## Using
+## Using in your project
 
 ### ArrayList
 ````php
@@ -47,8 +47,13 @@ var_dump(SequentialSearch::search($arrCopy, 14));
 var_dump(SequentialSearch::$calls);
 ````
 
+## Running from bash
+````bash
+$ php public/index.php src/String/MaximumOccurringCharacter.php
+````
+
 ## Notes
-* On DsAlgorithms\Ds\DsList namespace I'm not using List as name once that's a PHP reserved word.
+* On DsAlgorithms\Ds\DsList namespace I'm not using List as name once that's a PHP reserved word
 * On DsAlgorithms\Ds\DsList\ArrayList I'm using \SplFixedArray once that on PHP I can't create an array with fixed size
 
 ## License

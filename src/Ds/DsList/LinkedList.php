@@ -2,6 +2,8 @@
 
 namespace DsAlgorithms\Ds\DsList;
 
+use DsAlgorithms\Ds\Node;
+
 /**
  * Singly LinkedList
  */
