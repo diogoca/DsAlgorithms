@@ -1,15 +1,14 @@
 # Data structures and Algorithms
-Data Structures and Search, Sort and String Algorithms implemented using PHP, the goal of this project it's the study of them. Please let me know any mistake opening an issue.
+Data Structures and Search, Sort, Numbers and String Algorithms implemented using PHP, the goal of this project it's the study and practice of them. Please let me know any mistake opening an issue.
 
 ## Installation
-
 It's recommended that you use [Composer](https://getcomposer.org/) to install.
 
 ````bash
 $ composer require diogoca/dsalgorithms
 ````
 
-## Using in your project
+## Using
 
 ### ArrayList
 ````php
@@ -54,7 +53,7 @@ $ php public/index.php src/String/MaximumOccurringCharacter.php
 
 ## Notes
 * On DsAlgorithms\Ds\DsList namespace I'm not using List as name once that's a PHP reserved word
-* On DsAlgorithms\Ds\DsList\ArrayList I'm using \SplFixedArray once that on PHP I can't create an array with fixed size
+* I'm using \SplFixedArray once that on PHP I can't create an array with fixed size
 
 ## License
 [MIT license](https://opensource.org/licenses/MIT)

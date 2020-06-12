@@ -7,7 +7,7 @@ use DsAlgorithms\Ds\Node;
 /**
  * Linear Linked Queue (FIFO)
  */
-class LinkedQueue
+class LinkedQueue implements Queue
 {
     /**
      * First element
@@ -51,18 +51,14 @@ class LinkedQueue
         $this->size++;
     }
 
-    public function dequeue() 
+    public function dequeue()
     {
         if ($this->size === 0) {
             return null;
         }
         
         $data = $this->head->data;
-        
-        if ($this->size > 1) {
-            $this->head = $this->head->next;
-        }
-
+        $this->head = $this->head->next;
         $this->size--;
         
         return $data;
@@ -73,7 +69,7 @@ class LinkedQueue
         return $this->size;
     }
 
-    public function first() : Node 
+    public function first() : Node
     {
         return $this->head;
     }
@@ -88,32 +84,36 @@ class LinkedQueue
         $cursor = $this->head;
         $toString = "({$this->size}) ";
 
-        while($cursor !== null) {
+        while ($cursor !== null) {
             $toString .= "$cursor->data ";
             $cursor = $cursor->next;
         }
 
         return $toString . PHP_EOL;
     }
-    
 }
 
 
 
-$linkedQueue = new LinkedQueue;
-$linkedQueue->enqueue('Priscila');
-$linkedQueue->enqueue('Diogo');
-$linkedQueue->enqueue('Nath');
-$linkedQueue->enqueue('Mozi');
-$linkedQueue->enqueue('Silva');
+// $linkedQueue = new LinkedQueue;
+// $linkedQueue->enqueue('Priscila');
+// $linkedQueue->enqueue('Diogo');
+// $linkedQueue->enqueue('Nath');
+// $linkedQueue->enqueue('Mozi');
+// $linkedQueue->enqueue('Silva');
 
-echo $linkedQueue;
+// echo $linkedQueue;
 
-echo 'Dequeued ' . $linkedQueue->dequeue() . PHP_EOL;
-echo 'Dequeued ' . $linkedQueue->dequeue() . PHP_EOL;
+// echo 'Dequeued ' . $linkedQueue->dequeue() . PHP_EOL;
+// echo 'Dequeued ' . $linkedQueue->dequeue() . PHP_EOL;
 
-echo $linkedQueue;
+// echo $linkedQueue;
 
-echo 'Dequeued ' . $linkedQueue->dequeue() . PHP_EOL;
-echo $linkedQueue;
+// echo 'Dequeued ' . $linkedQueue->dequeue() . PHP_EOL;
+// echo $linkedQueue;
 
+// echo 'Dequeued ' . $linkedQueue->dequeue() . PHP_EOL;
+// echo $linkedQueue;
+
+// echo 'Dequeued ' . $linkedQueue->dequeue() . PHP_EOL;
+// echo $linkedQueue;

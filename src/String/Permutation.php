@@ -1,5 +1,7 @@
 <?php
 
+// TODO
+
 namespace DsAlgorithms\String;
 
 function swap(&$word, $i, $j)
@@ -10,25 +12,26 @@ function swap(&$word, $i, $j)
     $word[$i] = $aux;
 }
 
-function permute($word)
+function recursivePermute($word, $f, $u)
 {
-
-    echo $word . PHP_EOL;
-
-    $length = strlen($word);
-
-    for ($i = 0; $i < $length; $i++) {
-        if (($i + 1) >= $length) {
-            return;
-        }
-
-        swap($word, $i, $i + 1);
+    if ($u === 0) {
+        return $word;
+    }
+    
+    for ($i = $f; $i <= $u; $i++) {
+        swap($word, $i, $u);
+        echo $word . PHP_EOL;
+        swap($word, $u, $i);
     }
 }
 
-/**
- * Init
- */
-$input = $argv[1] ?? 'dia';
+function permute($word)
+{
+    recursivePermute($word, 0, strlen($word) - 1);
+}
 
-permute($input);
+permute('abc');
+
+
+// 1 com 2
+// 2 com 2
