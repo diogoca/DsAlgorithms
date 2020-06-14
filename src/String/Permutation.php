@@ -1,37 +1,41 @@
 <?php
 
-// TODO
-
 namespace DsAlgorithms\String;
 
-function swap(&$word, $i, $j)
+class Permutation
 {
-    $aux = $word[$j];
-
-    $word[$j] = $word[$i];
-    $word[$i] = $aux;
-}
-
-function recursivePermute($word, $f, $u)
-{
-    if ($u === 0) {
-        return $word;
+    private static function swap(&$word, $i, $j)
+    {
+        $aux = $word[$j];
+    
+        $word[$j] = $word[$i];
+        $word[$i] = $aux;
     }
     
-    for ($i = $f; $i <= $u; $i++) {
-        swap($word, $i, $u);
-        echo $word . PHP_EOL;
-        swap($word, $u, $i);
+    private static function recursivePermute($word, $i, $j)
+    {
+        if ($i === $j) {
+            echo $word . PHP_EOL;
+            return;
+        }
+    
+        for($k = $i ; $k <= $j ; $k++) {
+            self::swap($word, $i, $k);
+            self::recursivePermute($word, $i + 1, $j);
+            self::swap($word, $k, $i); # backtrack
+        }
+    
     }
+    
+    public static function permute($word)
+    {
+        self::recursivePermute($word, 0, strlen($word) - 1);
+    }
+    
 }
 
-function permute($word)
-{
-    recursivePermute($word, 0, strlen($word) - 1);
-}
+// abc = a + p(bc) = abc acb
+// bac = b + p(ac) = bac bca
+// cba = c + p(ba) = cba cab
 
-permute('abc');
-
-
-// 1 com 2
-// 2 com 2
+// Permutation::permute('abc');
