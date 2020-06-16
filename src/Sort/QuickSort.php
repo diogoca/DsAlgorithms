@@ -66,14 +66,3 @@ class QuickSort
         self::quicksort($arr, 0, sizeof($arr) - 1);
     }
 }
-
-
-/**
- * Init
- */
-
-$input = [15, 5, 9, 10, 29, 1, 4, 22, 30, 2, 3];
-
-QuickSort::sort($input);
-
-print_r($input);

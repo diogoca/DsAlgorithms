@@ -19,11 +19,19 @@ class Palindrome
 
     public static function isPalindrome($word)
     {
+        if (empty($word)) {
+            return;
+        }
+
         return self::isPalindromeRecursive($word, 0, \strlen($word) - 1);
     }
     
     public static function isPalindromeIterative($word)
     {
+        if (empty($word)) {
+            return;
+        }
+        
         $lastIndex = \strlen($word) - 1;
 
         for ($i = 0 , $j = $lastIndex; $i <= $lastIndex; $i++ , $j--) {
@@ -35,17 +43,3 @@ class Palindrome
         return true;
     }
 }
-
-// $start = microtime(true);
-
-// var_dump(Palindrome::isPalindrome('foo'));
-// var_dump(Palindrome::isPalindrome('ovo'));
-
-// echo 'Recursive execution time ', microtime(true) - $start . PHP_EOL;
-
-// $start = microtime(true);
-
-// var_dump(Palindrome::isPalindromeIterative('foo'));
-// var_dump(Palindrome::isPalindromeIterative('ovo'));
-
-// echo 'Iterative execution time ', microtime(true) - $start . PHP_EOL;

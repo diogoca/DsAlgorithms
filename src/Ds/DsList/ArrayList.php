@@ -95,6 +95,23 @@ class ArrayList
     {
         return $this->last + 1;
     }
+
+    public function __toString()
+    {
+        $toString = '[';
+
+        for ($i = 0; $i < $this->size(); $i++) {
+            $toString .= $this->data[$i];
+
+            if ($i !==  $this->size() - 1) {
+                $toString .= ', ';
+            }
+        }
+
+        $toString .= ']';
+        
+        return $toString;
+    }
 }
 
 // $list = new ArrayList();
@@ -104,10 +121,7 @@ class ArrayList
 // $list->add('y');
 // $list->add('z');
 
-// print_r($list);
-
-// var_dump($list->get(1));
-
+// echo $list . PHP_EOL; # [foo, bar, x, y, z]
+// echo $list->get(1) . PHP_EOL; # bar
 // $list->remove(2);
-
-// print_r($list);
+// echo $list . PHP_EOL; # [foo, bar, y, z]

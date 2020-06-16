@@ -40,16 +40,3 @@ class BubbleSort implements ArraySort
         self::recursiveSort($arr, sizeof($arr) - 1);
     }
 }
-
-
-/**
- * Init
- */
-
-$input = [15, 5, 9, 10, 29, 1, 4, 22, 30, 2, 3];
-
-print_r($input);
-
-BubbleSort::sort($input);
-
-print_r($input);

@@ -4,8 +4,12 @@ namespace DsAlgorithms\String;
 
 class MaximumOccurringCharacter
 {
-    public function __invoke($word)
+    public static function max($word)
     {
+        if (empty($word)) {
+            return;
+        }
+
         $chars = [];
         $bigger = 0;
         $maxOcuChar = null;
@@ -28,11 +32,3 @@ class MaximumOccurringCharacter
         return $maxOcuChar;
     }
 }
-
-// $maximumOccurringCharacter = new MaximumOccurringCharacter;
-
-// echo $maximumOccurringCharacter('abbbaacc') . PHP_EOL; // a
-// echo $maximumOccurringCharacter('helloworld') . PHP_EOL; // l
-// echo $maximumOccurringCharacter('abcdefghikjkakjiuiu') . PHP_EOL; // i
-// echo $maximumOccurringCharacter('0a0000bcdefghikjkakjiuiu') . PHP_EOL; // 0
-// echo $maximumOccurringCharacter('Z0a0ZZZZ000bcdefghikjkakjiuiu') . PHP_EOL; // 0

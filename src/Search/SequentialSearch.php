@@ -31,18 +31,8 @@ class SequentialSearch implements ArraySearch
             return null;
         }
 
+        self::$calls = 0;
+
         return self::recursiveSearch($arr, $needle, 0, sizeof($arr) - 1);
     }
 }
-
-/**
- * Init
- */
-
-$input = \range(7, 14);
-
-print_r($input);
-
-var_dump(SequentialSearch::search($input, 14));
-
-var_dump(SequentialSearch::$calls);

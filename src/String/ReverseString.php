@@ -15,9 +15,10 @@ class ReverseString
 
     public static function reverse($word)
     {
+        if (empty($word)) {
+            return;
+        }
+
         return self::recursiveReverse($word, strlen($word) - 1);
     }
 }
-
-
-// echo ReverseString::reverse('foooob');

@@ -17,17 +17,14 @@ use DsAlgorithms\Ds\DsList\ArrayList;
 $list = new ArrayList();
 $list->add('foo');
 $list->add('bar');
-$list->add('oof');
-$list->add('rab');
-$list->add('barack');
+$list->add('x');
+$list->add('y');
+$list->add('z');
 
-print_r($list);
-
-var_dump($list->get(1));
-
+echo $list . PHP_EOL; # [foo, bar, x, y, z]
+echo $list->get(1) . PHP_EOL; # bar
 $list->remove(2);
-
-print_r($list);
+echo $list . PHP_EOL; # [foo, bar, y, z]
 ````
 
 ### Search
@@ -39,11 +36,13 @@ use DsAlgorithms\Search\SequentialSearch;
 $arr = \range(7, 14);
 $arrCopy = $arr;
 
-var_dump(BinarySearch::search($arr, 14));
-var_dump(BinarySearch::$calls);
+print_r($arr);
 
-var_dump(SequentialSearch::search($arrCopy, 14));
-var_dump(SequentialSearch::$calls);
+echo '14 in index ' . BinarySearch::search($arr, 14) . PHP_EOL;
+echo 'binary search calls ' . BinarySearch::$calls . PHP_EOL; 
+
+echo '14 in index ' . SequentialSearch::search($arr, 14) . PHP_EOL; 
+echo 'sequencial search calls ' . SequentialSearch::$calls . PHP_EOL;
 ````
 
 ## Running from bash
