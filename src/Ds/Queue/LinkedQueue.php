@@ -64,6 +64,11 @@ class LinkedQueue implements Queue
         return $data;
     }
 
+    public function isEmpty()
+    {
+        return $this->size === 0;
+    }
+
     public function size()
     {
         return $this->size;
