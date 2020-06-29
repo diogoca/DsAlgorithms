@@ -1,6 +1,13 @@
 # Data structures and Algorithms
 Data Structures and Search, Sort, Numbers and String Algorithms implemented using PHP, the goal of this project it's the study and practice of them. Please let me know any mistake opening an issue.
 
+* [Data Structures](https://github.com/diogoca/DsAlgorithms/tree/master/src/Ds)
+* Algorithms
+    * [Number](https://github.com/diogoca/DsAlgorithms/tree/master/src/Number)
+    * [Search](https://github.com/diogoca/DsAlgorithms/tree/master/src/Search)
+    * [Sort](https://github.com/diogoca/DsAlgorithms/tree/master/src/Sort)
+    * [String](https://github.com/diogoca/DsAlgorithms/tree/master/src/String)
+
 ## Installation
 It's recommended that you use [Composer](https://getcomposer.org/) to install.
 
@@ -12,9 +19,7 @@ $ composer require diogoca/dsalgorithms
 
 ### ArrayList
 ````php
-use DsAlgorithms\Ds\DsList\ArrayList;
-
-$list = new ArrayList();
+$list = new \DsAlgorithms\Ds\DsList\ArrayList();
 $list->add('foo');
 $list->add('bar');
 $list->add('x');
@@ -53,6 +58,3 @@ $ php public/index.php src/String/MaximumOccurringCharacter.php
 ## Notes
 * On DsAlgorithms\Ds\DsList namespace I'm not using List as name once that's a PHP reserved word
 * I'm using \SplFixedArray once that on PHP I can't create an array with fixed size
-
-## License
-[MIT license](https://opensource.org/licenses/MIT)
