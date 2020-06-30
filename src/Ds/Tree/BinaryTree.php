@@ -18,6 +18,13 @@ class BinaryTree implements Tree
      */
     private $size;
 
+    /**
+     * Queue for BFS search
+     *
+     * @var LinkedQueue
+     */
+    private $queue;
+
     public function add(Node &$node = null, string $data)
     {
         if ($node === null) {
@@ -32,22 +39,46 @@ class BinaryTree implements Tree
         }
     }
 
-    public function breathFirstSearch(Node &$node = null, $level)
+    public function breathFirstSearch(Node &$node = null, $needle)
     {
-       $queue = new LinkedQueue;
-       $queue->enqueue($node->data);
+        if ($node === null || empty($needle)) {
+            return;
+        }
 
-       while(!$queue->isEmpty()) {
+        $this->queue = new LinkedQueue;
+        $this->queue->enqueue($node);
 
-            if ($node->left) {
-                $queue->enqueue($node->left->data);
+        while(!$this->queue->isEmpty()) {
+            $dequeued = $this->queue->dequeue();
+
+            echo "{$dequeued->data} ";
+
+            if ($dequeued->data === $needle) {          
+                return $dequeued;
             }
-            if ($node->right) {
-                $queue->enqueue($node->right->data);
+            if ($dequeued->left) {
+                $this->queue->enqueue($dequeued->left);
             }
+            if ($dequeued->right) {
+                $this->queue->enqueue($dequeued->right);
+            }
+        }
+    }
 
-            $node = $node->left;
-       }
+    public function depthFirstSearch(Node &$node = null, $needle)
+    {
+        if ($node === null) {
+            return null;
+        }
+        
+        echo "{$node->data} ";
+
+        if ($node->data === $needle) {          
+            return $node;
+        }
+
+        $this->depthFirstSearch($node->left, $needle);
+        $this->depthFirstSearch($node->right, $needle);
     }
 
     public function preOrder(Node &$node = null)
@@ -102,13 +133,19 @@ $tree->add($tree->root, 'H');
 $tree->add($tree->root, 'C');
 $tree->add($tree->root, 'E');
 
-echo PHP_EOL . "preorder: \t";
+echo PHP_EOL . "preorder: \t\t\t";
 $tree->preOrder($tree->root);
 
-echo PHP_EOL . "inorder: \t";
+echo PHP_EOL . "inorder: \t\t\t";
 $tree->inOrder($tree->root);
 
-echo PHP_EOL . "postorder: \t";
+echo PHP_EOL . "postorder: \t\t\t";
 $tree->postOrder($tree->root);
+
+echo PHP_EOL . "breathFirstSearch for I: \t";
+$tree->breathFirstSearch($tree->root, 'I');
+
+echo PHP_EOL . "depthFirstSearch for I: \t";
+$tree->depthFirstSearch($tree->root, 'I');
 
 echo PHP_EOL;
