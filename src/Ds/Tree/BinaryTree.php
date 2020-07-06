@@ -67,7 +67,7 @@ class BinaryTree implements Tree
         $this->queue = new LinkedQueue;
         $this->queue->enqueue($node);
 
-        while(!$this->queue->isEmpty()) {
+        while (!$this->queue->isEmpty()) {
             $dequeued = $this->queue->dequeue();
             
             if ($dequeued === $last) {
@@ -105,12 +105,12 @@ class BinaryTree implements Tree
         $this->queue = new LinkedQueue;
         $this->queue->enqueue($node);
 
-        while(!$this->queue->isEmpty()) {
+        while (!$this->queue->isEmpty()) {
             $dequeued = $this->queue->dequeue();
 
             echo "{$dequeued->data} ";
 
-            if ($dequeued->data === $needle) {          
+            if ($dequeued->data === $needle) {
                 return $dequeued;
             }
 
@@ -131,7 +131,7 @@ class BinaryTree implements Tree
         
         echo "{$node->data} ";
 
-        if ($node->data === $needle) {          
+        if ($node->data === $needle) {
             return $node;
         }
 
@@ -175,8 +175,8 @@ class BinaryTree implements Tree
     }
 
     public function __toString()
-    {        
-    }    
+    {
+    }
 }
 
 // $tree = new BinaryTree;
