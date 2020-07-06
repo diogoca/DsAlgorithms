@@ -39,6 +39,63 @@ class BinaryTree implements Tree
         }
     }
 
+    public function maximumDepth(&$node)
+    {
+        if ($node === null) {
+            return 0;
+        }
+
+        $maxLeft = 1 + $this->maximumDepth($node->left);
+        $maxRight = 1 + $this->maximumDepth($node->right);
+
+        return max($maxLeft, $maxRight);
+    }
+
+    public function levelOrderTransversal(Node &$node) : array
+    {
+        if ($node === null) {
+            return [];
+        }
+
+        $levelOrder = [];
+        $level = -1;
+        $last = $node;
+
+        $lastAdded = new \SplObjectStorage;
+        $lastAdded[$node] = 1;
+
+        $this->queue = new LinkedQueue;
+        $this->queue->enqueue($node);
+
+        while(!$this->queue->isEmpty()) {
+            $dequeued = $this->queue->dequeue();
+            
+            if ($dequeued === $last) {
+                $lastAdded[$last] = 1;
+                $level++;
+            }
+
+            $levelOrder[$level][] = $dequeued->data;
+
+            if ($dequeued->left) {
+                $this->queue->enqueue($dequeued->left);
+
+                if (isset($lastAdded[$last])) {
+                    $last = $dequeued->left;
+                }
+            }
+            if ($dequeued->right) {
+                $this->queue->enqueue($dequeued->right);
+
+                if (isset($lastAdded[$last])) {
+                    $last = $dequeued->right;
+                }
+            }
+        }
+
+        return $levelOrder;
+    }
+
     public function breathFirstSearch(Node &$node = null, $needle)
     {
         if ($node === null || empty($needle)) {
@@ -56,6 +113,7 @@ class BinaryTree implements Tree
             if ($dequeued->data === $needle) {          
                 return $dequeued;
             }
+
             if ($dequeued->left) {
                 $this->queue->enqueue($dequeued->left);
             }
@@ -117,35 +175,49 @@ class BinaryTree implements Tree
     }
 
     public function __toString()
-    {
-      
+    {        
     }    
 }
 
-$tree = new BinaryTree;
-$tree->add($tree->root, 'F');
-$tree->add($tree->root, 'B');
-$tree->add($tree->root, 'G');
-$tree->add($tree->root, 'A');
-$tree->add($tree->root, 'I');
-$tree->add($tree->root, 'D');
-$tree->add($tree->root, 'H');
-$tree->add($tree->root, 'C');
-$tree->add($tree->root, 'E');
+// $tree = new BinaryTree;
+// $tree->add($tree->root, 'F');
+// $tree->add($tree->root, 'B');
+// $tree->add($tree->root, 'G');
+// $tree->add($tree->root, 'A');
+// $tree->add($tree->root, 'I');
+// $tree->add($tree->root, 'D');
+// $tree->add($tree->root, 'H');
+// $tree->add($tree->root, 'C');
+// $tree->add($tree->root, 'E');
 
-echo PHP_EOL . "preorder: \t\t\t";
-$tree->preOrder($tree->root);
+// echo PHP_EOL . "preorder: \t\t\t";
+// $tree->preOrder($tree->root);
 
-echo PHP_EOL . "inorder: \t\t\t";
-$tree->inOrder($tree->root);
+// echo PHP_EOL . "inorder: \t\t\t";
+// $tree->inOrder($tree->root);
 
-echo PHP_EOL . "postorder: \t\t\t";
-$tree->postOrder($tree->root);
+// echo PHP_EOL . "postorder: \t\t\t";
+// $tree->postOrder($tree->root);
 
-echo PHP_EOL . "breathFirstSearch for I: \t";
-$tree->breathFirstSearch($tree->root, 'I');
+// echo PHP_EOL . "breathFirstSearch for I: \t";
+// $tree->breathFirstSearch($tree->root, 'I');
 
-echo PHP_EOL . "depthFirstSearch for I: \t";
-$tree->depthFirstSearch($tree->root, 'I');
+// echo PHP_EOL . "depthFirstSearch for I: \t";
+// $tree->depthFirstSearch($tree->root, 'I');
 
-echo PHP_EOL;
+// echo PHP_EOL . "Maximum Depth: \t";
+// echo $tree->maximumDepth($tree->root);
+
+// echo PHP_EOL . "levelOrderTransversal: \t";
+// print_r($tree->levelOrderTransversal($tree->root));
+
+
+// echo PHP_EOL;
+
+// $symmetricTree = new BinaryTree;
+// $symmetricTree->add($symmetricTree->root, 'B');
+// $symmetricTree->add($symmetricTree->root, 'A');
+// $symmetricTree->add($symmetricTree->root, 'C');
+
+// echo PHP_EOL . "levelOrderTransversal: \t";
+// print_r($symmetricTree->levelOrderTransversal($symmetricTree->root));

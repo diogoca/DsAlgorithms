@@ -1,5 +1,5 @@
 # Data structures and Algorithms
-Data Structures and Search, Sort, Numbers and String Algorithms implemented using PHP, the goal of this project it's the study and practice of them. Please let me know any mistake opening an issue.
+Data Structures and Search, Sort, Numbers, String Algorithms implemented using PHP, the goal of this project it's the study and practice of them. Please let me know any mistake opening an issue.
 
 * [Data Structures](https://github.com/diogoca/DsAlgorithms/tree/master/src/Ds)
 * Algorithms
